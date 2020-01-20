@@ -1,8 +1,12 @@
 # Web scraper
 
 ## Preámbulo
+Se estima que, en la actualidad (enero 2020), existen entre [1.7](https://www.internetlivestats.com/total-number-of-websites/) y [6](https://www.worldwidewebsize.com/) billones de páginas web en el mundo. Dentro de este universo digital tan grande y tan variado, ¿cómo aprovechar la gran cantidad de información que se genera y expone a través de internet de una manera eficiente?
 
-Muchos sitios web cuentan con APIs por medio de las cuales podemos obtener y utilizar su información. Pero para aquellos que no, requerimos de otros métodos para poder obtener grandes cantidades de información para después utilizarla en nuestras aplicaciones o análisis de datos. Una manera eficiente es por medio de web scraping.
+Desde una perspectiva técnica, existen formas de optimizar el acceso y hasta recolección la información específica.
+Por ejemplo, muchos sitios web cuentan con APIs por medio de las cuales podemos obtener y utilizar su información. Pero para aquellos que no, requerimos de otros métodos para poder obtener grandes cantidades de información para después utilizarla en nuestras aplicaciones o análisis de datos.
+
+Otra manera eficiente para obtener información de internet es el **web scraping**, que consiste en extraer, copiar y almacenar información de sitios web. La técnica busca transformar, a través de scripts, ciertos elementos sin estructura de los sitios web (por ejemplo los de HTML), lo que permitiría su almacenamiento (por ejemplo en bases de datos) y análisis. Aunque el **web scraping** es una técnica muy popular, no todos los sitios web permiten su uso.
 
 ## Introducción
 
@@ -24,3 +28,7 @@ Una vez que la herramienta de web scraping esté lista, se pretende crear un bac
 ## Uso
 
 (Explica a quienes visiten tu repo como pueden contribuir a tu proyecto. ¿Hay que instalar algo? Describe los pasos para poder correr localmente el proyecto)
+
+
+### Notas
+* https://www.worldwidewebsize.com/
