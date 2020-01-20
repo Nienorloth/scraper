@@ -10,7 +10,7 @@ Otra manera eficiente para obtener información de internet es el **web scraping
 
 ## Introducción
 
-Se desarrollará una herramienta de **web scraping** que nos ayude con la búsqueda de empleo, obteniendo la información relevante sobre las vacantes en el área de nuestro interés en [OCC Mundial](https://www.occ.com.mx/), sitio que permite esta práctica.
+Se desarrollará una herramienta de línea de comando (*CLI*) de **web scraping** que nos ayude con la búsqueda de empleo, obteniendo la información relevante sobre las vacantes en el área de nuestro interés en [OCC Mundial](https://www.occ.com.mx/), sitio que permite esta práctica.
 
 El objetivo es tener acceso diariamente a la información de nuevas vacantes de manera automática.
 
@@ -21,7 +21,6 @@ El proyecto se desarrollará en Python y se pretende poder ejecutarlo mediante l
 Además, se hará uso de [Requests](https://pypi.org/project/requests/) y de [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/), librerías de Python que, respectivamente, sirven para cargar páginas web y para hacer extraer datos del contenido no estructurado (HTML y XML).
 
 Otras librerías que se están considerando son:
-* [Pandas](https://pandas.pydata.org/) para la organización y análisis de datos;
 
 * [argparse](https://docs.python.org/3/library/argparse.html) para la creación de la herramienta en línea de comandos.
 
@@ -29,10 +28,26 @@ Por el momento, se considera acceder solamente al sitio OCC Mundial porque es el
 
 ## Avances esperados
 
-Se espera, al terminar el proyecto, contar con una herramienta de **web scraping** que se pueda correr en la línea de comandos para obtener la información que nos interesa de la página de OCC Mundial.
+Se espera, al terminar el proyecto, contar con una herramienta de **web scraping** que se pueda correr en la línea de comandos, y permita precisar argumentos para hacer búsquedas con los siguientes parámetros:
+
+* el puesto,
+* el lugar (estado, ciudad, región),
+* y quizá el sitio web a consultar.
+
+
+El objetivo es obtener un listado de vacantes que coincida con nuestros parámetros de búsqueda, y que incluya la siguiente información:
+
+* título de la vacante,
+* nombre de la compañía que la oferta,
+* fecha de publicación,
+* localidad de la vacante.
+
+Esta lista se mostrará en la línea de comandos.
 
 ## Hacker Edition
 
-Una vez que la herramienta de web scraping esté lista, se pretende crear un backend para enviar la información obtenida a una base de datos en Mongo DB, donde se almacenará para posteriormente poder visualizarla en una interfaz web.
+
+
+Una vez que la herramienta de web scraping esté lista, se pretende enviar la información obtenida a una base de datos en Mongo DB, donde se almacenará para posteriormente poder visualizarla en una interfaz web.
 
 ## Uso
