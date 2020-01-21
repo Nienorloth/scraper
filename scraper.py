@@ -1,7 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 
-URL = 'https://www.monster.com/jobs/search/?q=Software-Developer&where=Australia'
+# Variables que se pasarán como argumentos en la CLI
+job_description = 'developer'
+place = 'Australia'
+keyword = 'Python'
+URL = 'https://www.monster.com/jobs/search/?q={}&where={}'.format(job_description, place)
 page = requests.get(URL)
 
 
@@ -12,18 +16,35 @@ results = soup.find(id='ResultsContainer')
 # print(results.prettify())
 
 job_elems = results.find_all('section', class_='card-content')
+key_job_elems = results.find_all('h2', string=lambda text: keyword in text.lower())
 
-for job_elem in job_elems:
+if len(keyword) > 0:
+    for key_job_elem in key_job_elems:
 
-    title_elem = job_elem.find('h2', class_='title')
-    company_elem = job_elem.find('div', class_='company')
-    location_elem = job_elem.find('div', class_='location')
+        key_title_elem = key_job_elem.find('h2', class_='title')
+        key_company_elem = key_job_elem.find('div', class_='company')
+        key_location_elem = key_job_elem.find('div', class_='location')
+        if None in (key_title_elem, key_company_elem, key_location_elem):
+            continue
 
-    if None in (title_elem, company_elem, location_elem):
-        continue
+        print(key_title_elem.text.strip())
+        print(key_company_elem.text.strip())
+        print(key_location_elem.text.strip())
+        print()
+else:
+
+    for job_elem in job_elems:
+
+        title_elem = job_elem.find('h2', class_='title')
+        company_elem = job_elem.find('div', class_='company')
+        location_elem = job_elem.find('div', class_='location')
+
+        if None in (title_elem, company_elem, location_elem):
+            continue
 
 
-    print(title_elem.text.strip())
-    print(company_elem.text.strip())
-    print(location_elem.text.strip())
-    print()
+        print(title_elem.text.strip())
+        print(company_elem.text.strip())
+        print(location_elem.text.strip())
+        print()
+    
