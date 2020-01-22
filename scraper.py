@@ -1,19 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 
-<<<<<<< HEAD
 # Variables que se pasarán como argumentos en la CLI
 job_description = 'chef'
 place = 'Arizona'
 keyword = ''
 URL = f"https://www.monster.com/jobs/search/?q={job_description}&where={place}"
-=======
-# Variables que se pasaran como argumentos en la CLI
-job_description = 'developer'
-place = 'Australia'
-keyword = 'Python'
-URL = 'https://www.monster.com/jobs/search/?q={}&where={}'.format(job_description, place)
->>>>>>> 5a0f73471a7d486a0996dbc34ad8aea127d4b951
 page = requests.get(URL)
 
 
