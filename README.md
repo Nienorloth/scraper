@@ -52,7 +52,16 @@ Una vez alcanzados los objetivos del proyecto, se pretende agregar más funcione
 
 
 
-**Job scraper** también puede descargarse directamente de este repositorio: 
+
+
+
+
+
+
+
+
+
+**Job scraper** también puede descargarse directamente de este repositorio:
 
 *Asegurarse de contar con una versión de [Python 3.6] (https://www.python.org/) o mayor, y con las librerías [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) y [requests](https://pypi.org/project/requests/)*
 
