@@ -8,36 +8,29 @@ Por ejemplo, muchos sitios web cuentan con APIs por medio de las cuales podemos 
 
 ## Introducción
 
-Se desarrollará una herramienta de línea de comando (*CLI*) de **web scraping** que nos ayude con la **búsqueda de empleo**, obteniendo la información relevante sobre las vacantes en el área de nuestro interés que se encuentran en los motores de búsqueda de [OCC Mundial](https://www.occ.com.mx/) e [indeed](https://www.indeed.com.mx/).
+Se desarrolló una herramienta de línea de comando (*CLI*) de **web scraping** que nos ayude con la **búsqueda de empleo**, obteniendo la información relevante sobre las vacantes en el área de nuestro interés que se encuentran en los motores de búsqueda de [Indeed](https://www.indeed.com.mx/) y [Computrabajo](https://www.computrabajo.com.mx/).
 
-El objetivo es tener acceso diariamente a la información de nuevas vacantes de nuestro interés en los tres sitios de manera automática.
+El objetivo de esta herramienta es tener acceso diariamente a la información de nuevas vacantes de nuestro interés en los dos sitios (o más) de manera automática.
 
 ## Consideraciones Generales
 
-El proyecto se desarrollará en Python y se ejecutará mediante *CLI*.
+La herramienta se desarrolló en Python y se ejecuta mediante *CLI*.
 
-Además, se hará uso de [Requests](https://pypi.org/project/requests/) y de [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/), librerías de Python que, respectivamente, sirven para cargar páginas web y extraer datos del contenido no estructurado(HTML y XML).
+Además, se hizo uso de [Requests](https://pypi.org/project/requests/) y de [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/), librerías de Python que, respectivamente, sirven para cargar páginas web y extraer datos del contenido no estructurado(HTML y XML).
 
-Otras librerías que se están considerando son:
-
-* [argparse](https://docs.python.org/3/library/argparse.html) para la creación de la herramienta en línea de comandos.
-* [sys](https://docs.python.org/3/library/sys.html) para obtener acceso a argumentos ingresados a la *CLI*.
-* [getopt](https://docs.python.org/2/library/getopt.html) para parsear los argumentos de la *CLI*.
+También se utilizó la librería [argparse](https://docs.python.org/3/library/argparse.html) para la creación de la herramienta en línea de comandos utilizando argumentos en la *CLI* y banderas.
 
 ## Avances esperados
 
 Se espera, al terminar el proyecto, contar con una herramienta de **web scraping** que se pueda correr en la línea de comandos y permita precisar argumentos para hacer búsquedas con los siguientes parámetros:
 
-* el puesto,
-* el lugar (estado, ciudad, región),
-* palabra clave para filtrar los resultados,
-* el sitio web a consultar (en caso de que se requiera usar un solo motor de búsqueda). En el    caso de omitir este parámetro la búsqueda se haría en los 2 sitios web.
+* el puesto, en una sola palabra clave,
+* el lugar (estado, ciudad, región), también debe ser una sola palabra.
 
-Se obtenrá un listado de vacantes que coincida con nuestros parámetros de búsqueda, y que incluya la siguiente información:
+Se obtendrá un listado de vacantes que coincida con nuestros parámetros de búsqueda, y que incluya la siguiente información:
 
 * título de la vacante,
 * nombre de la compañía que la oferta,
-* fecha de publicación,
 * localidad de la vacante,
 * Enlace para postular a la vacante.
 
@@ -45,8 +38,11 @@ Esta lista se mostrará en la línea de comandos.
 
 ## Hacker Edition
 
-Los alcances proyectados, una vez que la herramienta de web scraping esté lista, serían:
- * almacenar la información obtenida en una base de datos en Mongo DB,
- * crear una aplicación web que consuma esta información y permita al usuario gestionar y organizar sus postulaciones.
+Una vez alcanzados los objetivos del proyecto, se pretende agregar más funciones:
+
+* que la herramienta funcione con la paginación de los sitios web,
+* agregar más sitios web,
+* agregar la opción de filtrar las búsquedas por medio de una palabra clave,
+* almacenar los resultados en un archivo .csv descargable.
 
 ## Uso
