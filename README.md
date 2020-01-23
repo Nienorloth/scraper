@@ -46,3 +46,29 @@ Una vez alcanzados los objetivos del proyecto, se pretende agregar más funcione
 * almacenar los resultados en un archivo .csv descargable.
 
 ## Uso
+
+
+
+
+
+
+**Job scraper** también puede descargarse directamente de este repositorio: 
+
+*Asegurarse de contar con una versión de [Python 3.6] (https://www.python.org/) o mayor, y con las librerías [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) y [requests](https://pypi.org/project/requests/)*
+
+
+1. Dar click al botón *Clone or download*, y elegir la opción *DOWNLOAD ZIP*. Con esto se descargará una copia del archivo del proyecto en formato .zip.
+
+2. Descomprimir el archivo .zip.
+
+3. Abrir una terminal de comandos, y acceder al lugar donde se guardó el archivo descomprimido, que puede hacerse con la instrucción *cd*
+
+      home$ cd ruta_a_carpeta_de_scrapers
+
+4. Una vez en la ubicación del archivo, es necesario definir el lenguaje que usaremos (Python 3.6 o versiones posteriores) más el nombre del archivo que ejecutaremos (scraper.py) y las siguientes claves: -job seguida del tipo de trabajo que buscamos y -location con el lugar.
+
+Un ejemplo del script completo es:
+
+      home/ruta_a_carpeta_de_scrapers$ python3 scraper.py -job developer -location Guadalajara
+
+5. Los resultados aparecerán en la consola.
