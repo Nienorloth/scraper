@@ -14,11 +14,11 @@ def scrape_jobs(job=None, location=None):
     """
     if location and job:
         URL = f"https://www.indeed.com.mx/jobs?q={job}&l={location}"
-    elif location & ~job:
+    elif location and not job:
         URL = f"https://www.indeed.com.mx/trabajo?q=developer&l={location}"
-    elif job & ~location:
+    elif job and not location:
         URL = f"https://www.indeed.com.mx/jobs?q={job}&l="
-    else: 
+    elif not job and not location: 
         URL = "https://www.indeed.com.mx/jobs?q=&l="
 
     page = requests.get(URL)
@@ -26,24 +26,6 @@ def scrape_jobs(job=None, location=None):
     soup = BeautifulSoup(page.content, "html.parser")
     results = soup.find(id="resultsCol")
     return results
-
-
-# def filter_jobs_by_keyword(results, word):
-#     """Filters job postings by word and prints matching job title plus link.
-#     :param results: Parsed HTML container with all job listings
-#     :type results: BeautifulSoup object
-#     :param word: keyword to filter by
-#     :type word: str
-#     :return: None - just meant to print results
-#     :rtype: None
-#     """
-#     filtered_jobs = results.find_all(
-#         "h2", string=lambda text: word in text.lower()
-#     )
-#     for f_job in filtered_jobs:
-#         link = f_job.find("a")["href"]
-#         print(f_job.text.strip())
-#         print(f"Apply here: {link}\n")
 
 
 def print_all_jobs(results):
@@ -60,27 +42,27 @@ def print_all_jobs(results):
         title_elem = job_elem.find('a', class_="jobtitle turnstileLink")
         company_elem = job_elem.find('span', class_='company')
         location_elem = job_elem.find('span', class_='location')
-        link_elem = job_elem.find("a")
+        link_cont_elem = job_elem.find('div', class_='title')      
 
-        if None in (title_elem, company_elem, location_elem, link_elem):
+        if None in (title_elem, company_elem, location_elem):
             continue
             # print(job_elem.prettify())  # to inspect the 'None' element
 
-        print("Vacante " + title_elem.text.strip())
+        print("Vacante" + title_elem.text.strip())
+        link_elem = link_cont_elem.find("a")
         print("Empresa " + company_elem.text.strip())
-        print("Lugar " + location_elem.text.strip())    
-    
-        print(link_elem["href"])
+        print("Lugar " + location_elem.text.strip())  
+        print("https://www.indeed.com.mx" + link_elem["href"])  
         print()
 
 
 # USE THE SCRIPT AS A COMMAND-LINE INTERFACE
 # ----------------------------------------------------------------------------
 my_parser = argparse.ArgumentParser(
-    prog="jobs", description="Find Developer Jobs"
+    prog="jobs web-scraper", description="Web-scraping tool for job search", epilog="Good luck with the search!"
 )
 my_parser.add_argument(
-    "-job", metavar="job", type=str, help="The desired job title"
+    "-job", metavar="job", type=str, help="A keyword to look for the desired job"
 )
 my_parser.add_argument(
     "-location", metavar="location", type=str, help="The location of the job"
@@ -90,8 +72,8 @@ args = my_parser.parse_args()
 job, location = args.job, args.location
 
 results = scrape_jobs(job, location)
-# if keyword:
-#     filter_jobs_by_keyword(results, keyword.lower())
-# else:
-#     print_all_jobs(results)
-print_all_jobs(results)
+
+if not results:
+    print("Ingresa los datos para tu búsqueda (-job, -location)")
+else:
+    print_all_jobs(results)
