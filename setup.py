@@ -12,6 +12,7 @@ setup(
     py_modules=['scrape_jobs', 'print_all_jobs', 'prueba'],
     package_dir={'': 'src'},
     url='https://github.com/Nienorloth/scraper',
+    packages=setuptools.find_packages(),
     clasiffiers=[
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.6",
