@@ -5,7 +5,7 @@ import argparse
 
 def scrape_jobs(job=None, location=None):
     """Scrapes job postings from indeed, optionally by job and location.
-    :param job: job title 
+    :param job: job title
     :param location: Where the job is located
     :type location: str
     :type job: str
@@ -18,7 +18,7 @@ def scrape_jobs(job=None, location=None):
         URL = f"https://www.indeed.com.mx/trabajo?q=developer&l={location}"
     elif job and not location:
         URL = f"https://www.indeed.com.mx/jobs?q={job}&l="
-    elif not job and not location: 
+    elif not job and not location:
         URL = "https://www.indeed.com.mx/jobs?q=&l="
 
     page = requests.get(URL)
@@ -52,11 +52,12 @@ def print_all_jobs(results):
         print("Empresa " + company_elem.text.strip())
         print("Lugar " + location_elem.text.strip())
         print("https://www.indeed.com.mx" + link_elem["href"])
+        print("*"*10)
         print()
 
 def scrape_jobs_2(job=None, location=None):
     """Scrapes job postings from indeed, optionally by job and location.
-    :param job: job title 
+    :param job: job title
     :param location: Where the job is located
     :type location: str
     :type job: str
@@ -69,14 +70,14 @@ def scrape_jobs_2(job=None, location=None):
         URL = f"https://www.computrabajo.com.mx/empleos-en-{location}?q="
     elif job and not location:
         URL = f"https://www.computrabajo.com.mx/empleos-en-?q={job}"
-    elif not job and not location: 
+    elif not job and not location:
         URL = "https://www.computrabajo.com.mx/empleos-en-?q="
 
     page = requests.get(URL)
 
     soup = BeautifulSoup(page.content, "html.parser")
     results_2 = soup.find(id="p_ofertas")
-    return results_2   
+    return results_2
 
 
 def print_all_jobs_2(results_2):
@@ -100,8 +101,9 @@ def print_all_jobs_2(results_2):
 
         print("Vacante " + title_elem.text.strip())
         print(company_elem.strip())
-        # print("Lugar " + location_elem.text.strip())  
-        print("https://www.computrabajo.com.mx" + title_elem["href"])  
+        # print("Lugar " + location_elem.text.strip())
+        print("https://www.computrabajo.com.mx" + title_elem["href"])
+        print("*"*10)
         print()
 
 
