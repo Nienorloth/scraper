@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import argparse
-
+    
 
 def scrape_jobs(job=None, location=None):
     """Scrapes job postings from indeed, optionally by job and location.
