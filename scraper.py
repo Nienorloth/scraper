@@ -5,7 +5,7 @@ import argparse
 
 def scrape_jobs(job=None, location=None):
     """Scrapes job postings from indeed, optionally by job and location.
-    :param job: job title 
+    :param job: job title
     :param location: Where the job is located
     :type location: str
     :type job: str
@@ -18,7 +18,7 @@ def scrape_jobs(job=None, location=None):
         URL = f"https://www.indeed.com.mx/trabajo?q=developer&l={location}"
     elif job and not location:
         URL = f"https://www.indeed.com.mx/jobs?q={job}&l="
-    elif not job and not location: 
+    elif not job and not location:
         URL = "https://www.indeed.com.mx/jobs?q=&l="
 
     page = requests.get(URL)
@@ -42,7 +42,7 @@ def print_all_jobs(results):
         title_elem = job_elem.find('a', class_="jobtitle turnstileLink")
         company_elem = job_elem.find('span', class_='company')
         location_elem = job_elem.find('span', class_='location')
-        link_cont_elem = job_elem.find('div', class_='title')      
+        link_cont_elem = job_elem.find('div', class_='title')
 
         if None in (title_elem, company_elem, location_elem):
             continue
@@ -51,8 +51,8 @@ def print_all_jobs(results):
         print("Vacante" + title_elem.text.strip())
         link_elem = link_cont_elem.find("a")
         print("Empresa " + company_elem.text.strip())
-        print("Lugar " + location_elem.text.strip())  
-        print("https://www.indeed.com.mx" + link_elem["href"])  
+        print("Lugar " + location_elem.text.strip())
+        print("https://www.indeed.com.mx" + link_elem["href"])
         print()
 
 
