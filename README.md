@@ -8,13 +8,13 @@ Por ejemplo, muchos sitios web cuentan con APIs por medio de las cuales podemos 
 
 ## Introducción
 
-Se desarrolló una herramienta de línea de comando (*CLI*) de **web scraping** que nos ayude con la **búsqueda de empleo**, obteniendo la información relevante sobre las vacantes en el área de nuestro interés que se encuentran en los motores de búsqueda de [Indeed](https://www.indeed.com.mx/) y [Computrabajo](https://www.computrabajo.com.mx/).
+Se desarrolló una libería de **web scraping** que nos ayude con la **búsqueda de empleo**, obteniendo la información relevante sobre las vacantes en el área de nuestro interés que se encuentran en los motores de búsqueda de [Indeed](https://www.indeed.com.mx/) y [Computrabajo](https://www.computrabajo.com.mx/).
 
 El objetivo de esta herramienta es tener acceso diariamente a la información de nuevas vacantes de nuestro interés en los dos sitios (o más) de manera automática.
 
 ## Consideraciones Generales
 
-La herramienta se desarrolló en Python y se ejecuta mediante *CLI*.
+La herramienta consta de una librería que se desarrolló en Python y se ejecuta mediante *CLI*, instalando el paquete por medio de pip.
 
 Además, se hizo uso de [Requests](https://pypi.org/project/requests/) y de [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/), librerías de Python que, respectivamente, sirven para cargar páginas web y extraer datos del contenido no estructurado(HTML y XML).
 
@@ -24,7 +24,7 @@ Para ejecutar esta  herramienta es necesario utilizar python versión 3.6 o supe
 
 ## Avances esperados
 
-Se espera, al terminar el proyecto, contar con una herramienta de **web scraping** que se pueda correr en la línea de comandos y permita precisar argumentos para hacer búsquedas con los siguientes parámetros:
+Se espera, al terminar el proyecto, contar con una librería o paquete de python para **web scraping** que se pueda correr en la línea de comandos y permita precisar argumentos para hacer búsquedas con los siguientes parámetros:
 
 * el puesto, en una sola palabra clave,
 * el lugar (estado, ciudad, región), también debe ser una sola palabra.
@@ -40,7 +40,7 @@ Esta lista se mostrará en la línea de comandos.
 
 ## Hacker Edition
 
-Una vez alcanzados los objetivos del proyecto, se pretende agregar más funciones:
+Una vez alcanzados los objetivos del proyecto, se pretende agregar las siguientes funciones:
 
 * que la herramienta funcione con la paginación de los sitios web para extraer los datos de todas las páginas (no solamente la primera),
 * agregar más sitios web,
@@ -49,30 +49,32 @@ Una vez alcanzados los objetivos del proyecto, se pretende agregar más funcione
 
 ## Uso
 
-Para utilizar la herramienta **job scraper** hay que seguir los siguientes pasos:
+Para utilizar la herramienta **job scraper** se puede instalar el paquete publicado en test.pypi siguiendo los siguientes pasos:
 
-* instalar el paquete publicado en test.pypi ingresando el siguiente comando en la CLI:
+1. ingresar el siguiente comando en la *CLI*:
 
 *pip install -i https://test.pypi.org/simple/ scraper*
 
-* ir a la carpeta de descarga del paquete en la terminal,
+2. Ir a la carpeta de descarga del paquete en la terminal (la carpeta donde está instalado python).
 
-* ejecutar el comando *python scraper.py -job x -location x* , donde la x es una palabra clave que defina las banderas -job (el puesto a buscar) y -location (el lugar donde se busca el empleo).
+3. Correr el script *python scraper.py -job x -location x* , donde la x será una palabra clave que defina las banderas -job (el puesto a buscar) y -location (el lugar donde se busca el empleo).
 
-Se mostrará en la *CLI* el listado de resultados de la búsqueda en ambas páginas web.
+Se mostrará el listado de resultados de la búsqueda de ambas páginas web en la consola.
 
-**Job scraper** también puede descargarse directamente de este repositorio. En este caso debe asegurarse de contar con una versión de [Python 3.6] (https://www.python.org/) o mayor, y con las librerías [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) y [requests](https://pypi.org/project/requests/).
+**Job scraper** también puede descargarse directamente de este repositorio. En este caso debe asegurarse de contar con una versión de [Python 3.6] (https://www.python.org/) o mayor.
 
 1. Dar click al botón *Clone or download*, y elegir la opción *DOWNLOAD ZIP*. Con esto se descargará una copia del archivo del proyecto en formato .zip.
 
 2. Descomprimir el archivo .zip.
 
-3. Abrir una terminal de comandos, y acceder al lugar donde se guardó el archivo descomprimido, que puede hacerse con la instrucción *cd*
+3. Abrir una terminal de comandos y acceder a la carpeta donde se guardó el archivo descomprimido, que puede hacerse con la instrucción *cd*.
 
       home$ cd ruta_a_carpeta_de_scrapers
 
-4. Una vez en la ubicación del archivo, es necesario definir el lenguaje que usaremos (Python 3.6 o versiones posteriores) más el nombre del archivo que ejecutaremos (scraper.py) y las siguientes claves: -job seguida del tipo de trabajo que buscamos y -location con el lugar. Un ejemplo del script completo es:
+4. Correr el script *pip install -r requirements.txt* para instalar las dependencias del proyecto, que son las librerías [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) y [requests](https://pypi.org/project/requests/).
+
+5. Una vez en la ubicación del archivo, es necesario correr el script de ejecución definiendo el lenguaje que usaremos (python 3.6 o versiones posteriores) más el nombre del archivo que ejecutaremos (scraper.py) y las siguientes claves o banderas: -job seguida del tipo de trabajo que buscamos y -location con el lugar. Un ejemplo del script completo es:
 
       home/ruta_a_carpeta_de_scrapers$ python3 scraper.py -job developer -location Guadalajara
 
-5. Los resultados aparecerán en la consola.
+6. Los resultados aparecerán en la consola.
