@@ -1,4 +1,4 @@
-# Web scraper
+# Job scraper
 
 ## Preámbulo
 Se estima que en la actualidad (enero 2020) existen entre [1.7](https://www.internetlivestats.com/total-number-of-websites/) y [6](https://www.worldwidewebsize.com/) billones de páginas web en el mundo. Dentro de este universo digital tan grande y tan variado, ¿cómo aprovechar la gran cantidad de información que se genera y expone a través de internet de una manera eficiente?
@@ -20,6 +20,8 @@ Además, se hizo uso de [Requests](https://pypi.org/project/requests/) y de [Bea
 
 También se utilizó la librería [argparse](https://docs.python.org/3/library/argparse.html) para la creación de la herramienta en línea de comandos utilizando argumentos en la *CLI* y banderas.
 
+Para ejecutar esta  herramienta es necesario utilizar python versión 3.6 o superior.
+
 ## Avances esperados
 
 Se espera, al terminar el proyecto, contar con una herramienta de **web scraping** que se pueda correr en la línea de comandos y permita precisar argumentos para hacer búsquedas con los siguientes parámetros:
@@ -40,9 +42,21 @@ Esta lista se mostrará en la línea de comandos.
 
 Una vez alcanzados los objetivos del proyecto, se pretende agregar más funciones:
 
-* que la herramienta funcione con la paginación de los sitios web,
+* que la herramienta funcione con la paginación de los sitios web para extraer los datos de todas las páginas (no solamente la primera),
 * agregar más sitios web,
 * agregar la opción de filtrar las búsquedas por medio de una palabra clave,
 * almacenar los resultados en un archivo .csv descargable.
 
 ## Uso
+
+Para utilizar la herramienta **job scraper** hay que seguir los siguientes pasos: 
+
+* instalar el paquete publicado en test.pypi ingresando el siguiente comando en la CLI: 
+
+*pip install -i https://test.pypi.org/simple/ scraper*
+
+* ir a la carpeta de descarga del paquete en la terminal,
+
+* ejecutar el comando *python scraper.py -job x -location x* , donde la x es una palabra clave que defina las banderas -job (el puesto a buscar) y -location (el lugar donde se busca el empleo).
+
+Se mostrará en la *CLI* el listado de resultados de la búsqueda en ambas páginas web.
